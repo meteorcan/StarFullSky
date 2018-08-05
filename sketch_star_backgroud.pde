@@ -1,3 +1,7 @@
+//A demon of star 
+//create at 2018-07-18
+//
+
 float mv=0;
 int star_num=30000;
 Star[] stars=new Star[star_num];
