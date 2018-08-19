@@ -9,7 +9,7 @@ int star_num=1000;
 Star[] stars=new Star[star_num];
 int heart_len=16;
 int star_mode=0;
-boolean key_L=false;
+boolean key_S=false;
 Star [] heart1 = new Star[heart_len];
 Star [] heart2 = new Star[heart_len];
 class Star{
@@ -78,14 +78,14 @@ smooth();
 void keyPressed()
 {
   star_mode=2;
-  if(key=='l')
+  if(key=='s')
   {
-       key_L=true;}
+       key_S=true;}
 }
 void keyReleased()
 {
  star_mode=0;
- key_L=false;
+ key_S=false;
 }
 void draw()
 {
@@ -106,16 +106,27 @@ void draw()
   }
   popMatrix();
   
-  if(key_L==true){
-  translate(0.5*width,0.5*height);
+  if(key_S==true){
+    translate(mouseX,mouseY);
+    //scale(0.1*abs(sin(10000*angle))+1);
   //rotateZ(angle*2);
+
     for(int i=0;i<heart_len;i++){
     Star h_star1=heart1[i];
     Star h_star2=heart2[i];
     h_star1.display(1);
     h_star2.display(1);
   }
+
   }
- angle+=speed; 
+
+  
+   angle+=speed; 
+   
+  // if(frameCount<3000){
+  //  saveFrame("frames/star_h-####.tif");
+  // }else{
+  //exit();   
+  // }
  
 }
